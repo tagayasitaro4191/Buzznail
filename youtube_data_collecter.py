@@ -55,11 +55,8 @@ TAG = {
 
 
 def get_youtube_API():
-    API_KEY = 'AIzaSyD9HuXqxC-P5-7lJPolNxy-Vllo_Itw-4I'
-    #API_KEY = "AIzaSyCPwV-QgXQUvTukZyznompEgS8p5IO7rk4"
-    #API_KEY = "AIzaSyB2GyibFfhMYIWWTK4QGaVe0hGtdmaqsrw"
-    #API_KEY = "AIzaSyCEVVoRu2h9fTuoSSa4qwnCpYJ-ndNNFZc"
-    #API_KEY = "AIzaSyBB63kA2qibd_YV-68wJvh_BQBWr42nblc"
+    #APIkeyを設定
+    #API_KEY = "APIkey"
 
 
     youtube_API = build(
