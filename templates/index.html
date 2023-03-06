@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test</title>
+	<style>
+		div {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<p class="bg-dark text-white">
+			<!-- 変数nameに値があるとき -->
+			{% if view_counts %}
+			値テスト: {{ view_counts }}
+			<!-- 変数nameに値がないとき -->
+			{% else %}
+			値テスト: なし
+			{% endif %}
+		</p>
+		<form action="/get_input_data" method="POST" accept="image/png, image/jpeg" enctype="multipart/form-data">
+			<input type="file" name="img_video_file" class="input_file" onchange="previewImage(this);">
+			<div>
+				<input type="submit" value="送信する">
+			</div>
+		</form>
+		<p>
+			Preview:<br>
+			<canvas id="preview" style="max-width:200px;"></canvas>
+		</p>
+		<script>
+			function previewImage(obj)
+			{
+				var fileReader = new FileReader();
+				fileReader.onload = (function() {
+					var canvas = document.getElementById('preview');
+					var ctx = canvas.getContext('2d');
+					var image = new Image();
+					image.src = fileReader.result;
+					image.onload = (function () {
+						canvas.width = image.width;
+						canvas.height = image.height;
+						ctx.drawImage(image, 0, 0);
+					});
+				});
+				fileReader.readAsDataURL(obj.files[0]);
+			}
+		</script>
+	</div>
+</body>
+
+</html>

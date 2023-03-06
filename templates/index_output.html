@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Youtube thumbnail result</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/style_output.css">
+</head>
+
+<body>
+	<div class="container-fluid px-0">
+		<div id="particles-js"></div>
+		<!-- ヘッダー -->
+		<section class="header">
+			<nav class="navbar navbar-expand-md shadow-lg">
+				<div class="container-fluid">
+					<img class="buzznail-icon" src="/static/images/Buzznail_logo.png" alt="">
+					<a class="home-icon" href="/" target="_blank" rel="noopener noreferrer">
+						<img src="/static/images/home_icon.png" alt="" style="width: 100%;">
+					</a>
+				</div>
+			</nav>
+		</section>
+		<!-- main -->
+		<div class="row shadow-lg px-2">
+			<div class="main col-md-8 offset-md-2 col-12 px-2">
+				<div class="row py-5">
+					<div class="col-6 d-flex justify-content-center align-items-center">
+						<p class="main-viewCount">{{predicted_view_counts1}}~{{predicted_view_counts2}}再生</p>
+					</div>
+					
+					<div class="col-6">
+						<img class="img-fluid rounded" src={{preview}} alt="">
+					</div>
+				</div>
+				
+				<!-- 空白 -->
+				<div style="height: 10cm;">
+
+				</div>
+
+				<!-- 動画のおすすめサムネ -->
+				<h2 class="video-suggest-h" style="font-weight: bold;">
+					<p><span class="bgextend bgLRextendTrigger"><span class="bgappearTrigger">コチラの場面もおすすめ!!</span></span></p>
+				</h2>
+				<div class="video-area row m-0 mb-5 delayScroll" style="width: 100%;">
+					<div class="video-col col-md-3 col-6 box">
+						<div class="video-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.0}}" alt="">
+							<div class="video-suggest-text card-body" style="text-align: center;">
+								<small class="text-muted"></small>000~000再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="video-col col-md-3 col-6 box">
+						<div class="video-suggest card">
+							<img class="img-fluid rounded" src="https://i.ytimg.com/vi/eWRrRrslFQ0/sddefault.jpg" alt="">
+							<div class="video-suggest-text card-body" style="text-align: center;">
+								<small class="text-muted"></small>000~000再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="video-col col-md-3 col-6 box">
+						<div class="video-suggest card">
+							<img class="img-fluid rounded" src="https://i.ytimg.com/vi/eWRrRrslFQ0/sddefault.jpg" alt="">
+							<div class="video-suggest-text card-body" style="text-align: center;">
+								<small class="text-muted"></small>000~000再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="video-col col-md-3 col-6 box">
+						<div class="video-suggest card">
+							<img class="img-fluid rounded" src="https://i.ytimg.com/vi/eWRrRrslFQ0/sddefault.jpg" alt="">
+							<div class="video-suggest-text card-body" style="text-align: center;">
+								<small class="text-muted"></small>000~000再生</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div style="height: 5cm;"></div>
+
+				<!-- おすすめの関連サムネ -->
+				<h2 class="relevance-suggest-h" style="font-weight: bold;">
+					<p><span class="bgextend bgLRextendTrigger"><span class="bgappearTrigger">参考サムネイル</span></span></p>
+				</h2>
+				<p class="relevance-suggest-p"><span class="bgextend bgLRextendTrigger"><span class="bgappearTrigger">カテゴリー[]で000~000再生されているサムネイルはこちら</span></span></p>
+				<div class="relevance-area row m-0 mb-5 delayScroll" style="width: 100%;">
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.0}}" alt="">
+							<h5 class="card-title">{{title.0}}</h5>
+							<p class="channel">{{channel.0}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.0}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.1}}" alt="">
+							<h5 class="card-title">{{title.1}}</h5>
+							<p class="channel">{{channel.1}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.1}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.2}}" alt="">
+							<h5 class="card-title">{{title.2}}</h5>
+							<p class="channel">{{channel.2}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.2}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.3}}" alt="">
+							<h5 class="card-title">{{title.3}}</h5>
+							<p class="channel">{{channel.3}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.3}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.4}}" alt="">
+							<h5 class="card-title">{{title.4}}</h5>
+							<p class="channel">{{channel.4}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.4}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.5}}" alt="">
+							<h5 class="card-title">{{title.5}}</h5>
+							<p class="channel">{{channel.5}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.5}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.6}}" alt="">
+							<h5 class="card-title">{{title.6}}</h5>
+							<p class="channel">{{channel.6}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.6}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.7}}" alt="">
+							<h5 class="card-title">{{title.7}}</h5>
+							<p class="channel">{{channel.7}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.7}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.8}}" alt="">
+							<h5 class="card-title">{{title.8}}</h5>
+							<p class="channel">{{channel.8}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.8}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.9}}" alt="">
+							<h5 class="card-title">{{title.9}}</h5>
+							<p class="channel">{{channel.9}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.9}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.10}}" alt="">
+							<h5 class="card-title">{{title.10}}</h5>
+							<p class="channel">{{channel.10}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.10}}再生</small>
+							</div>
+						</div>
+					</div>
+					<div class="relevance-col col-md-3 col-6 mb-1 box">
+						<div class="relevance-suggest card">
+							<img class="img-fluid rounded" src="{{thumbnail.11}}" alt="">
+							<h5 class="card-title">{{title.11}}</h5>
+							<p class="channel">{{channel.11}}</p>
+							<div class="relevance-suggest-text card-body">
+								<small class="text-muted"></small>{{view_counts.11}}再生</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<!-- footer -->
+		<footer class="py-3">
+			<div class="container-fluid d-flex justify-content-between align-items-center">
+				<img class="meicraft-icon" src="/static/images/MEIcraft.png" alt="" style="margin-left: 10px;">
+				<div>
+					<p class="footer-text">使用した言語・ライブラリ・API・フレームワーク・サービス</p>
+					<div class="d-flex justify-content-center">
+						<a href="https://getbootstrap.jp/" target="_blank" rel="noopener noreferrer">
+							<svg class="used-logo bootstrap-logo" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bootstrap-fill" viewBox="0 0 16 16">
+								<path d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z"/>
+								<path d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-8zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396H5.062z"/>
+							</svg>
+						</a>
+						<a href="https://developers.google.com/youtube/v3/getting-started?hl=ja" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo youtube-data-api-logo" src="/static/images/logo-youtube.svg" alt="">
+						</a>
+						<a href="https://pytorch.org/" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo pytorch-logo" src="/static/images/pytorch_logo.png" alt="">
+						</a>
+						<a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo flask-logo" src="/static/images/flask_logo.png" alt="">
+						</a>
+						<a href="https://www.google.com/aclk?sa=l&ai=DChcSEwjm_KjettX7AhVaWWAKHfUtAmAYABAAGgJ0bQ&sig=AOD64_362ScmZXjpynekIDzXqRYEP6jC3Q&q&adurl&ved=2ahUKEwiM06PettX7AhXWhlYBHQlVBzYQ0Qx6BAgJEAE" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo flask-logo" src="/static/images/GCP_logo.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	
+
+	<!-- 順番に現れる -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/4-12/js/4-12.js"></script>
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script src="https://kotanukikyoso.github.io/particles.jsWithRotateAndImageOpacity/particles.min.js"></script>
+	<script src="tsparticles.engine.min.js"></script>
+	<script src="/static/scripts/script_output.js"></script>
+</body>
+
+</html>

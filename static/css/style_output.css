@@ -1,0 +1,270 @@
+
+/* アイコンの大きさのレスポンシブ対応 */
+.buzznail-icon {
+	width: 15%;
+	height: auto;
+}
+.home-icon {
+	width: 5%;
+	height: auto;
+}
+.meicraft-icon {
+	width: 15%;
+	min-width: 200px;
+	height: auto;
+}
+
+.header {
+	height: 25vm;
+}
+
+.main {
+	padding: 0;
+}
+
+.main-viewCount {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+/* 動画のサムネのスタイル */
+/* .video-area {
+	background-color: #00000054;
+} */
+.video-col {
+	padding: 0;
+	margin-bottom: 10px;
+}
+.video-suggest-text {
+	padding: 0;
+	padding-bottom: 5px;
+}
+/* .video-suggest-h {
+	text-align: center;
+} */
+
+.video-suggest {
+	padding-top: 5px;
+}
+
+
+/* 関連サムネのスタイル */
+/* .relevance-area {
+	background-color: #00000054;
+} */
+.relevance-col {
+	padding: 0;
+	margin-bottom: 10px;
+}
+.relevance-suggest-text {
+	padding: 0;
+	padding-bottom: 5px;
+}
+.relevance-suggest-h {
+	font-size: 3rem;
+	text-align: center;
+}
+.relevance-suggest-p {
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: center;
+}
+.relevance-suggest {
+	padding-top: 5px;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 1);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* フォントサイズのレスポンシブ対応 */
+.footer-text {
+	font-size: 1.0rem;
+	text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+	.footer {
+		font-size: 0.5rem;
+		text-align: center;
+	}
+}
+@media screen and (max-width: 576px) {
+	.footer {
+		font-size: 0.5rem;
+		text-align: center;
+	}
+}
+
+
+/* 使用した言語、ライブラリ、フレームワーク、API、サービスのロゴ */
+.bootstrap-logo {
+	fill: rgb(137, 18, 252);
+}
+
+
+.used-logo {
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 64px;
+	height: 64px;
+}
+
+@media screen and (max-width: 780px) {
+	.used-logo {
+		margin-left: 10px;
+		margin-right: 10px;
+		width: 48px;
+		height: 48px;
+	}
+}
+@media screen and (max-width: 576px) {
+	.used-logo {
+		margin-left: 10px;
+		margin-right: 10px;
+		width: 32px;
+		height: 32px;
+	}
+}
+
+
+/*==================================================
+スタート時は要素自体を透過0にするためのopacity:0;を指定する
+===================================*/
+
+.box{
+	opacity: 0;
+}
+
+/*==================================================
+ふわっ
+===================================*/
+
+.fadeUp {
+animation-name:fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+	from {
+	 	opacity: 0;
+		transform: translateY(100px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+/*==================================================
+背景色が伸びて出現
+===================================*/
+
+/*全共通*/
+
+.bgextend{
+	animation-name:bgextendAnimeBase;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	position: relative;
+	overflow: hidden;/*　はみ出た色要素を隠す　*/
+	opacity:0;
+}
+
+@keyframes bgextendAnimeBase{
+	from {
+	  opacity:0;
+	}
+  
+	to {
+	  opacity:1;  
+  }
+  }
+  
+  /*中の要素*/
+  .bgappear{
+	animation-name:bgextendAnimeSecond;
+	animation-duration:1s;
+	animation-delay: 0.6s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+  
+  @keyframes bgextendAnimeSecond{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+  }
+  }
+  
+  /*左から右*/
+  .bgLRextend::before{
+	animation-name:bgLRextendAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #666;/*伸びる背景色の設定*/
+  }
+  @keyframes bgLRextendAnime{
+	0% {
+	  transform-origin:left;
+	  transform:scaleX(0);
+	}
+	50% {
+	  transform-origin:left;
+	  transform:scaleX(1);
+	}
+	50.001% {
+	  transform-origin:right;
+	}
+	100% {
+	  transform-origin:right;
+	  transform:scaleX(0);
+	}
+  }
+  
+  /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+  .bgappearTrigger,
+  .bgLRextendTrigger{
+	  opacity: 0;
+  }
+
+
+/*========= particle js を描画するエリア設定 ===============*/
+#particles-js{ 
+	background-image: linear-gradient(110deg,
+	rgb(255,255,255) 0%,
+	 rgb(255,255,255) 65%,
+	 rgb(124,230,215) 65%,
+	  rgb(124,230,215) 70%,
+	  rgb(230,132,195) 70%,
+	  rgb(230,132,195) 75%,
+	  hsl(70,76%,65%) 75%, 
+	  hsl(70,76%,65%) 80%,
+	  rgb(255,255,255) 80%,
+	  rgb(255,255,255) 100%);
+	position:fixed;/*描画固定*/
+	z-index:-1;/*描画を一番下に*/
+	width: 100%;
+	height: 100%;
+}
+
+#wrapper{
+	position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+	z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+	width:100%;
+	height: 100%;
+}

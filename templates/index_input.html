@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Youtube thumbnail result</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/style_input.css">
+
+	<!--英語のフォント(Ubuntu)-->
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+
+	<!--boxiconの読み込み-->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<!-- https://www.youtube.com/watch?v=TiHg5sftmu8 -->
+<!-- https://i.ytimg.com/vi/TiHg5sftmu8/sddefault.jpg -->
+<body>
+	<div class="container-fluid px-0">
+		<div id="particles-js"></div>
+		<!-- ヘッダー -->
+		<section class="header">
+			<nav class="navbar navbar-expand-md shadow-lg">
+				<div class="container-fluid">
+					<img class="buzznail-icon" src="static/images/Buzznail_logo.png" alt="">
+					<ul class="nav nav-pills" id="myTab2" role="tablist">
+						<li class="nav-item" role="presentation">
+							<a class="nav-link active" aria-current="page" href="#img-video" id="img-video-tab" data-bs-toggle="tab" role="tab">
+								ファイル添付
+							</a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link" href="#youtube-url" id="youtube-url-tab" data-bs-toggle="tab" role="tab" aria-controls="youtube-url" aria-selected="false">
+								Youtube URL
+							</a>
+						</li>
+					</ul>
+					<a class="home-icon" href="/">
+						<img src="static/images/home_icon.png" alt="" style="width: 100%;">
+					</a>
+				</div>
+			</nav>
+		</section>
+
+		<!-- main -->
+		<div class="row shadow-lg px-2">
+			<div class="main col-md-8 offset-md-2 col-12 px-2">
+				<div class="tab-content" id="myTabContent2">
+					<!-- 画像、動画入力フォーム -->
+					<div class="tab-pane fade show active mt-5" id="img-video" role="tabpanel" aria-labelledby="img-video-tab">
+						<w>サムネや他の情報を入力することでディープラーニングにより、どれだけバズるか出力されます。</w>
+						<h2 class="upload">サムネイルをアップロードしてください。</h2>
+						<div class="d-flex justify-content-center">
+							<form id="form-info" action="/get_input_data" method="POST" enctype="multipart/form-data">
+								<div class="uploader">
+									<input id="file-select-input" type="file" class="hidden" name="img_video_file" accept="image/*">
+								</div>
+							</form>
+						</div>
+						<div id="previews" class="d-flex justify-content-center my-3"></div>
+					</div>
+					<!-- Youtube URL 入力フォーム -->
+					<div class="tab-pane fade mt-5" id="youtube-url" role="tabpanel" aria-labelledby="youtube-url-tab">
+						<div class="mb-3 row">
+							<label for="staticEmail" class="url-label col-3 col-form-label">Youtube URL</label>
+							<div class="col-9">
+								<input id="input-url" class="form-control form-control-lg" type="text" placeholder="https://www.youtube.com/watch?v=example">
+							</div>
+							<div class="my-3 col-8 offset-2">
+								<img id="youtube-img" src="" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h3 class="category-h">動画のカテゴリーを選択してください。</h3>
+				<div class="category d-flex justify-content-center">
+					<select id="input-category" class="category-form form-select">
+						<option value="1">映画とアニメ</option>
+						<option value="2">自動車と乗り物</option>
+						<option value="10">音楽</option>
+						<option value="15">ペットと動物</option>
+						<option value="17">スポーツ</option>
+						<option value="19">旅行とイベント</option>
+						<option value="20">ゲーム</option>
+						<option value="22">ブログ</option>
+						<option value="23">コメディー</option>
+						<option value="24">エンターテインメント</option>
+						<option value="25">ニュースと政治</option>
+						<option value="26">ハウツーとスタイル</option>
+						<option value="27">教育</option>
+						<option value="28">科学と技術</option>
+						<option value="29">非営利団体と社会活動</option>
+						<option value="30">映画</option>
+						<option value="31">アニメ</option>
+						<option value="32">アクション/アドベンチャー</option>
+						<option value="33">クラシック</option>
+						<option value="34">コメディー</option>
+						<option value="35">ドキュメンタリー</option>
+						<option value="36">ドラマ</option>
+						<option value="37">家族向け</option>
+						<option value="38">海外</option>
+						<option value="39">ホラー</option>
+						<option value="40">SF/ファンタジー</option>
+						<option value="41">サスペンス</option>
+						<option value="42">短編</option>
+						<option value="43">番組</option>
+						<option value="44">予告編</option>
+					</select>
+				</div>
+				<div class="yosoku d-flex justify-content-center">
+					<button id="post-btn" type="button" class="btn btn-primary d-flex align-items-center" onClick="addParam()">
+						<span class="post-btn-text">予測する</span>
+					</button>
+				</div>
+				<div class="icon-exp">
+					<d class="icon-exp-title">サムネイルを持っている方のこのアプリの使い方</d>
+					<div class="row d-flex justify-content-around delayScroll">
+						<div class="col-lg-4 col-sm-10 box">
+							<div class="service card-effect">
+								<div class="iconbox">
+									<i class='bx bx-upload'></i>
+								</div>
+								<h6>作ったサムネイルを入力しよう</h6>
+								<h7>作成したサムネイルをアップロードしてください。</h7>
+								<h8>※アップロードされた画像は保存も公開もされません。</h8>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-10 box">
+							<div class="service card-effect ">
+								<div class="iconbox">
+									<i class='bx bxs-select-multiple'></i>
+								</div>
+								<h6>動画のカテゴリーを選択してください。</h6>
+								<h7>作成したサムネイルはどのカテゴリーに属しますか？</h7>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-10 box">
+							<div class="service card-effect ">
+								<div class="iconbox">
+									<i class='bx bx-search'></i>
+								</div>
+								<h6>「予測する」ボタンを押してください。</h6>
+								<h7>アップロードされた画像に対する再生回数の予測結果を表示します。</h7>
+								<h8>また、選択されたカテゴリーで再生回数の多いサムネイルを表示します。</h8>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- footer -->
+		<footer class="py-3">
+			<div class="container-fluid d-flex justify-content-between align-items-center">
+				<img class="meicraft-icon" src="static/images/MEIcraft.png" alt="" style="margin-left: 10px;">
+				<div>
+					<p class="footer-text">使用した言語・ライブラリ・API・フレームワーク・サービス</p>
+					<div class="d-flex justify-content-center">
+						<a href="https://getbootstrap.jp/" target="_blank" rel="noopener noreferrer">
+							<svg class="used-logo bootstrap-logo" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+								class="bi bi-bootstrap-fill" viewBox="0 0 16 16">
+								<path
+									d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z" />
+								<path
+									d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-8zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396H5.062z" />
+							</svg>
+						</a>
+						<a href="https://developers.google.com/youtube/v3/getting-started?hl=ja" target="_blank"
+							rel="noopener noreferrer">
+							<img class="used-logo youtube-data-api-logo" src="static/images/logo-youtube.svg" alt="">
+						</a>
+						<a href="https://pytorch.org/" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo pytorch-logo" src="static/images/pytorch_logo.png" alt="">
+						</a>
+						<a href="https://flask.palletsprojects.com/en/2.2.x/" target="_blank" rel="noopener noreferrer">
+							<img class="used-logo flask-logo" src="static/images/flask_logo.png" alt="">
+						</a>
+						<a href="https://www.google.com/aclk?sa=l&ai=DChcSEwjm_KjettX7AhVaWWAKHfUtAmAYABAAGgJ0bQ&sig=AOD64_362ScmZXjpynekIDzXqRYEP6jC3Q&q&adurl&ved=2ahUKEwiM06PettX7AhXWhlYBHQlVBzYQ0Qx6BAgJEAE"
+							target="_blank" rel="noopener noreferrer">
+							<img class="used-logo flask-logo" src="static/images/GCP_logo.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<!-- 順番に現れる -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/4-12/js/4-12.js"></script>
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script src="https://kotanukikyoso.github.io/particles.jsWithRotateAndImageOpacity/particles.min.js"></script>
+	<script src="tsparticles.engine.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<script src="/static/scripts/script_input.js"></script>
+</body>
+
+</html>
+
